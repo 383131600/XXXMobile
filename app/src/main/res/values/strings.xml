@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">XXXMobile</string>
+
+    <!--权限-->
+    <string name="Miss_Permission_WRITE_EXTERNAL_STORAGE">缺少写入权限</string>
+    <string name="Miss_Permission_READ_CALENDAR">缺少读取日历权限</string>
+    <string name="Miss_Permission_READ_CALL_LOG">缺少读取通话记录权限</string>
+    <string name="Miss_Permission_READ_CONTACTS">缺少读取联系人权限</string>
+    <string name="Miss_Permission_READ_PHONE_STATE">缺少获取手机状态权限</string>
+    <string name="Miss_Permission_READ_SMS">缺少读取短信权限</string>
+    <string name="Miss_Permission_RECORD_AUDIO">缺少录音权限</string>
+    <string name="Miss_Permission_CAMERA">缺少相机权限</string>
+    <string name="Miss_Permission_CALL_PHONE">缺少拨打电话权限</string>
+    <string name="Miss_Permission_SEND_SMS">缺少发送短信权限</string>
+    <!--...........................................................................-->
+
+    <string name="Error_Title_Msg">错误</string>
+    <string name="Enter_Msg">确定</string>
+
+</resources>
