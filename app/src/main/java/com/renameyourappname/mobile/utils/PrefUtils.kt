@@ -2,7 +2,6 @@ package com.renameyourappname.mobile.utils
 
 import android.content.Context
 import com.renameyourappname.mobile.common.Constant
-import com.renameyourappname.mobile.helper.PreferenceHelper
 
 /**
  * Created by Kobe on 2017/12/22.

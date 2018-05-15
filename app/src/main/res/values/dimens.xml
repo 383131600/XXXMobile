@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="global_menu_avatar_size">64dp</dimen>
 
+    <!--Start_____Material Design 设计规范____-->
+    <!--状态栏高度,一般用不上,供ui遵循-->
+    <dimen name="material_status_bar_height">24dp</dimen>
+    <!--底部导航栏高度-->
+    <dimen name="material_bottom_navigation_bar_height">48dp</dimen>
+    <!--悬浮按钮-->
+    <dimen name="material_floating_action_bar_56">56dp</dimen>
+    <dimen name="material_floating_action_bar_40">40dp</dimen>
+    <!--用户头像-->
+    <dimen name="material_user_avatar_64">64dp</dimen>
+    <dimen name="material_user_avatar_40">40dp</dimen>
+    <!--小图标尺寸-->
+    <dimen name="material_small_icon">24dp</dimen>
+    <!--小图标点击区域-->
+    <dimen name="material_small_icon_click_area">48dp</dimen>
+    <!--侧栏到屏幕右边的距离(即空出来的距离)-->
+    <dimen name="material_drawer_empty_area_right">56dp</dimen>
+    <!--卡片间距-->
+    <dimen name="material_card_spacing">8dp</dimen>
+    <!--默认元素间距-->
+    <dimen name="material_default_spacing">10dp</dimen>
+    <!--大多数元素的留白区域-->
+    <dimen name="material_default_empty_area">46dp</dimen>
+    <!--分割线上下间距-->
+    <dimen name="material_divider_top_bottom">8dp</dimen>
+    <!--屏幕左右对齐基线-->
+    <dimen name="material_screen_empty_area_left_right">16dp</dimen>
+    <!--文字左侧距屏幕-->
+    <dimen name="material_text_left_empty_area">72dp</dimen>
+    <!--正文,按钮文字-->
+    <dimen name="material_text_default">14sp</dimen>
+    <!--小字提示-->
+    <dimen name="material_text_small">12sp</dimen>
+    <dimen name="material_text_small_10">10sp</dimen>
+    <!--小标题-->
+    <dimen name="material_text_title_small">16sp</dimen>
+    <!--Appbar文字-->
+    <dimen name="material_text_appbar">20sp</dimen>
+    <!--大标题-->
+    <dimen name="material_text_title_big">24sp</dimen>
+    <!--超大号字-->
+    <dimen name="material_text_big_34">34sp</dimen>
+    <dimen name="material_text_big_45">45sp</dimen>
+    <dimen name="material_text_big_56">56sp</dimen>
+    <dimen name="material_text_big_112">112sp</dimen>
+
+    <!--_____Material Design 设计规范____End-->
 </resources>

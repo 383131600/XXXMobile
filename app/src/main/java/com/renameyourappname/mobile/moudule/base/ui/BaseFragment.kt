@@ -15,8 +15,8 @@ import com.renameyourappname.mobile.moudule.base.dialog.DialogControl
 import com.renameyourappname.mobile.moudule.base.dialog.WaitDialog
 import com.renameyourappname.mobile.moudule.base.presenter.BasePresenter
 import com.renameyourappname.mobile.moudule.base.view.IView
-import com.renameyourappname.mobile.utils.utilShowNormalDialog
-import com.renameyourappname.mobile.utils.utilShowToast
+import com.renameyourappname.mobile.utils.*
+
 import javax.inject.Inject
 
 /**
@@ -104,6 +104,10 @@ abstract class BaseFragment<T:Any>: android.support.v4.app.Fragment(),DialogCont
 
     }
 
+    protected open fun initData(){
+
+    }
+
     /**
      * startActivity
      *
@@ -180,9 +184,7 @@ abstract class BaseFragment<T:Any>: android.support.v4.app.Fragment(),DialogCont
         startActivityForResult(intent, requestCode)
     }
 
-    protected fun showToast(msg: String) {
-            utilShowToast(view!!.rootView,msg)
-    }
+
 
     protected abstract fun initInjector()
 
@@ -192,20 +194,21 @@ abstract class BaseFragment<T:Any>: android.support.v4.app.Fragment(),DialogCont
 
     protected abstract fun getContentViewLayoutID(): Int
 
-    override fun showError(s: String) {
-        utilShowNormalDialog(this.mContext,this.mContext!!.getString(R.string.Error_Title_Msg),s)
-    }
+
 
     override fun showWaitDialog(): WaitDialog? {
-        if (_isVisible) {
-            if (_waitDialog == null) {
-                _waitDialog = getWaitDialog(mContext)
-            }
-            if (_waitDialog != null) {
+        try {
+            if (_isVisible) {
+                if (_waitDialog == null) {
+                    _waitDialog = getWaitDialog(mContext)
+                }
+                if (_waitDialog != null) {
 
-                _waitDialog!!.show()
+                    _waitDialog!!.show()
+                }
+                return _waitDialog
             }
-            return _waitDialog
+        } catch (e: Exception) {
         }
         return null
     }
@@ -235,8 +238,26 @@ abstract class BaseFragment<T:Any>: android.support.v4.app.Fragment(),DialogCont
         }
     }
 
-    override fun showMessage(msg: String) {
-        showToast(msg)
+
+
+    override fun showDefaultToast(msg: String) {
+        globalUtilShowDefaultToast(view!!.rootView, msg)
+    }
+
+    override fun showErrorToast(msg: String) {
+        globalUtilShowErrorToast(view!!.rootView, msg)
+    }
+
+    override fun showSuccessToast(msg: String) {
+        globalUtilShowSuccessToast(view!!.rootView, msg)
+    }
+
+    override fun showWarningToast(msg: String) {
+        globalUtilShowWarningToast(view!!.rootView, msg)
+    }
+
+    override fun showErrorDialog(msg: String) {
+        globalUtilShowNormalDialog(mContext, getString(R.string.Error_Title_Msg), msg)
     }
 
     override fun showLoading() {
@@ -245,5 +266,11 @@ abstract class BaseFragment<T:Any>: android.support.v4.app.Fragment(),DialogCont
 
     override fun hideLoading() {
         hideWaitDialog()
+    }
+
+    override fun done() {
+    }
+
+    override fun finishRefresh() {
     }
 }

@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/ivMenuUserProfilePhoto"
-            android:layout_width="@dimen/global_menu_avatar_size"
-            android:layout_height="@dimen/global_menu_avatar_size"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_margin="12dp" />
 
         <TextView

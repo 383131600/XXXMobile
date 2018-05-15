@@ -15,6 +15,11 @@
     <!--...........................................................................-->
 
     <string name="Error_Title_Msg">错误</string>
-    <string name="Enter_Msg">确定</string>
+    <string name="Error_Request_Network_Error">网络请求失败,请检查您的网络设置</string>
+
+    <string name="Msg_Enter">确认</string>
+    <string name="Msg_Cancel">取消</string>
+    <string name="Msg_VCode_Access">验证通过</string>
+    <string name="Msg_VCode_Failed">验证失败</string>
 
 </resources>

@@ -95,7 +95,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainContract.View {
         // set other settings to meet your needs
         var mMenuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams)
 
-        mIvMenu!!.setOnClickListener {
+        mTvMenu!!.setOnClickListener {
             if (supportFragmentManager.findFragmentByTag(ContextMenuDialogFragment.TAG) == null) {
                 mMenuDialogFragment.show(supportFragmentManager, ContextMenuDialogFragment.TAG)
             }

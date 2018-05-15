@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.renameyourappname.mobile.utils.StringUtils
 import com.renameyourappname.mobile.utils.WDevice
-import com.renameyourappname.mobile.utils.utilShowToast
 
 /**
  * Created by Kobe on 2017/12/25.
@@ -80,6 +79,7 @@ abstract class BaseAppCompatActivity: AppCompatActivity() {
         initToolbar()
         initViews()
         initEvents()
+        initData()
     }
 
     abstract fun initToolbar()
@@ -118,11 +118,8 @@ abstract class BaseAppCompatActivity: AppCompatActivity() {
         //        }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
 
-        WDevice.hideSoftKeyboard(this, currentFocus)
-    }
+    protected abstract fun setFragmentContainerResId(): Int
 
     protected abstract fun beforeSetContentView()
 
@@ -146,7 +143,8 @@ abstract class BaseAppCompatActivity: AppCompatActivity() {
      */
     protected abstract fun initViews()
     protected abstract fun initEvents()
-
+    protected abstract fun initData()
+    protected abstract fun verifySuccess()
     /**
      * startActivity
      *
@@ -223,14 +221,5 @@ abstract class BaseAppCompatActivity: AppCompatActivity() {
         startActivityForResult(intent, requestCode)
     }
 
-    /**
-     * show toast
-     *
-     * @param msg
-     */
-    protected fun showToast(msg: String) {
-        if (!StringUtils.isEmpty(msg)) {
-            utilShowToast(window.decorView,msg)
-        }
-    }
+
 }

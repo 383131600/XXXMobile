@@ -1,5 +1,6 @@
 package com.renameyourappname.mobile.utils
 
+import android.Manifest
 import android.R
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -12,6 +13,7 @@ import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Environment
 import android.os.PowerManager
@@ -27,6 +29,7 @@ import android.view.inputmethod.InputMethodManager
 import java.io.File
 import java.lang.reflect.Field
 import java.text.NumberFormat
+import java.util.*
 
 /**
  * Created by Kobe on 2017/12/25.
@@ -668,5 +671,51 @@ object WDevice {
             netType = NETTYPE_WIFI
         }
         return netType
+    }
+
+
+    @SuppressLint("MissingPermission")
+    //获取设备唯一id,使用前需要检查权限
+    fun getUUID(context: Context): String {
+        val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        var deviceId = ""
+        var androidId = ""
+        var mac = ""
+        var serial = ""
+        val wifiMan = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        try {
+            if (PackageManager.PERMISSION_GRANTED == context.getPackageManager().checkPermission(Manifest.permission.READ_PHONE_STATE, context.getPackageName())) {
+                deviceId = tm.getDeviceId()
+            }
+
+        } catch (e: Exception) {
+            //e.printStackTrace()
+        }
+        try {
+            androidId = android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID)
+        } catch (e: Exception) {
+            //e.printStackTrace()
+        }
+        try {
+
+        } catch (e: Exception) {
+            mac = wifiMan.getConnectionInfo().getMacAddress()
+
+        }
+        try {
+            val c = Class.forName("android.os.SystemProperties")
+            val get = c.getMethod("get", String::class.java)
+            serial = get.invoke(c, "ro.serialno", "unknown").toString()
+        } catch (e: Exception) {
+        }
+
+        if (StringUtils.isEmpty(deviceId) && StringUtils.isEmpty(androidId) && StringUtils.isEmpty(mac) && StringUtils.isEmpty(serial)) {
+            return UUID.randomUUID().toString()
+        }
+        val deviceUuid = UUID(
+                androidId.hashCode().toLong(),
+                (deviceId.hashCode().toString() + mac.hashCode().toString() + serial.hashCode().toString()).toLong())
+        val uniqueId = deviceUuid.toString()
+        return uniqueId
     }
 }

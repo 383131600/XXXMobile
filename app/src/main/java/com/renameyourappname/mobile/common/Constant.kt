@@ -8,6 +8,7 @@ class Constant private constructor() {
         //sp文件名
         val PREF_NAME = "creativelocker.pref"
         val TOKEN = "token"
+        val URL_RANDOM_PICTURE = "https://picsum.photos/400/800"
 
     }
 }
