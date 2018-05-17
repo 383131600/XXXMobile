@@ -37,6 +37,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainContract.View {
     }
 
     override fun initViews() {
+        hideBackButton()
         simpleTest()
 
         //toolbar
