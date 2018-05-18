@@ -1,6 +1,7 @@
 package com.renameyourappname.mobile.moudule.base.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -432,9 +433,10 @@ abstract class BaseActivity<P : Any> : BaseAppCompatActivity(), DialogControl, I
     }
 
 
-    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+    @SuppressLint("MissingSuperCall")
+    override fun onSaveInstanceState(outState: Bundle?) {
         //直接注释这行可以简单解决崩溃重启后fragment重叠的问题
-        //super.onSaveInstanceState(outState, outPersistentState)
+        //super.onSaveInstanceState(outState)
     }
 
     override fun setContentView(layoutResID: Int) {
