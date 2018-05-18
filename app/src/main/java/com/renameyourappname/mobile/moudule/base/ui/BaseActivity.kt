@@ -312,7 +312,7 @@ abstract class BaseActivity<P : Any> : BaseAppCompatActivity(), DialogControl, I
 
     fun hideBackButton() {
         if (mTvBack != null) {
-            mTvBack!!.visibility = View.VISIBLE
+            mTvBack!!.visibility = View.GONE
         }
     }
 
