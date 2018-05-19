@@ -9,6 +9,9 @@ class Constant private constructor() {
         val PREF_NAME = "creativelocker.pref"
         val TOKEN = "token"
         val URL_RANDOM_PICTURE = "https://picsum.photos/400/800"
-
+        val EXTRA_TITLE="extra_title"
+        val EXTRA_URL="extra_url"
+        val EXTRA_IS_LOAD_HTML_TEXT="extra_is_load_html_text"
+        val EXTRA_HTML_TEXT="extra_html_text"
     }
 }

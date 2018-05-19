@@ -6,6 +6,7 @@ import com.renameyourappname.mobile.injector.annotation.ContextLife
 import com.renameyourappname.mobile.injector.annotation.PerActivity
 import com.renameyourappname.mobile.injector.module.ActivityModule
 import com.renameyourappname.mobile.moudule.main.ui.MainActivity
+import com.renameyourappname.mobile.moudule.webview.XWebViewActivity
 import dagger.Component
 
 /**
@@ -25,4 +26,6 @@ interface ActivityComponent {
     fun getActivity(): Activity
 
     fun inject(mainActivity: MainActivity)
+    fun inject(mainActivity: XWebViewActivity)
+
 }
